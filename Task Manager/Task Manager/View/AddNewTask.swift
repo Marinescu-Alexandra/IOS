@@ -29,6 +29,21 @@ struct AddNewTask: View {
                             .foregroundColor(.black)
                     }
                 }
+                .overlay(alignment: .trailing) {
+                    Button {
+                        if let editTast = taskModel.editTask{
+                            env.managedObjectContext.delete(editTast)
+                            try? env.managedObjectContext.save()
+                            env.dismiss()
+                        }
+                    } label: {
+                        Image(systemName: "trash")
+                            .font(.title3)
+                            .foregroundColor(.red)
+                    }
+                    .opacity(taskModel.editTask == nil ? 0 : 1)
+                }
+            
             VStack(alignment: .leading, spacing: 12){
                 Text("Color")
                     .font(.caption)

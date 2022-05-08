@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		90BFE5DE2828126C00E62AF2 /* DynamicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90BFE5DD2828126C00E62AF2 /* DynamicView.swift */; };
 		90D172C528278B9800C73267 /* Task_ManagerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D172C428278B9800C73267 /* Task_ManagerApp.swift */; };
 		90D172C728278B9800C73267 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D172C628278B9800C73267 /* ContentView.swift */; };
 		90D172C928278B9900C73267 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 90D172C828278B9900C73267 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		90BFE5DD2828126C00E62AF2 /* DynamicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicView.swift; sourceTree = "<group>"; };
 		90D172C128278B9800C73267 /* Task Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		90D172C428278B9800C73267 /* Task_ManagerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task_ManagerApp.swift; sourceTree = "<group>"; };
 		90D172C628278B9800C73267 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -65,8 +67,8 @@
 				90D172D728278E2000C73267 /* View */,
 				90D172C428278B9800C73267 /* Task_ManagerApp.swift */,
 				90D172C628278B9800C73267 /* ContentView.swift */,
-				90D172C828278B9900C73267 /* Assets.xcassets */,
 				90D172CD28278B9900C73267 /* Persistence.swift */,
+				90D172C828278B9900C73267 /* Assets.xcassets */,
 				90D172CF28278B9900C73267 /* Task_Manager.xcdatamodeld */,
 				90D172CA28278B9900C73267 /* Preview Content */,
 			);
@@ -84,6 +86,7 @@
 		90D172D728278E2000C73267 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				90BFE5DD2828126C00E62AF2 /* DynamicView.swift */,
 				90D172D928278E4400C73267 /* Home.swift */,
 				90D172DD2827DD6900C73267 /* AddNewTask.swift */,
 			);
@@ -172,6 +175,7 @@
 				90D172DC2827939B00C73267 /* TaskViewModel.swift in Sources */,
 				90D172C728278B9800C73267 /* ContentView.swift in Sources */,
 				90D172DA28278E4400C73267 /* Home.swift in Sources */,
+				90BFE5DE2828126C00E62AF2 /* DynamicView.swift in Sources */,
 				90D172DE2827DD6900C73267 /* AddNewTask.swift in Sources */,
 				90D172D128278B9900C73267 /* Task_Manager.xcdatamodeld in Sources */,
 				90D172C528278B9800C73267 /* Task_ManagerApp.swift in Sources */,
@@ -300,6 +304,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Task Manager/Preview Content\"";
@@ -328,6 +333,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Task Manager/Preview Content\"";

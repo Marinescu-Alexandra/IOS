@@ -12,6 +12,10 @@ struct Home: View {
     
     @Namespace var animation
     
+    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.deadline, ascending: false)], predicate: nil, animation: .easeInOut) var tasks: FetchedResults<Task>
+    
+    @Environment(\.self) var env
+    
     var body: some View {
         ScrollView(.vertical, showsIndicators: false){
             VStack{
@@ -26,6 +30,8 @@ struct Home: View {
                 
                 CustomSegmentedBar()
                     .padding(.top, 5)
+                
+                TaskView()
             }
             .padding()
         }
@@ -66,16 +72,96 @@ struct Home: View {
     }
     
     @ViewBuilder
+    func TaskView()->some View{
+        LazyVStack(spacing: 20){
+            DynamicFilteredView(currentTab: taskModel.currentTab) { (task: Task) in
+                TaskRowView(task: task)
+            }
+        }
+        .padding(.top, 20)
+    }
+    
+    @ViewBuilder
+    func TaskRowView(task: Task)->some View{
+        VStack(alignment: .leading, spacing: 10){
+            HStack{
+                Text(task.type ?? "")
+                    .font(.callout)
+                    .padding(.vertical, 5)
+                    .padding(.horizontal)
+                    .background{
+                        Capsule()
+                            .fill(.white.opacity(0.3))
+                    }
+                Spacer()
+                
+                if !task.isCompleted && taskModel.currentTab != "Failed"{
+                    Button {
+                        taskModel.editTask = task
+                        taskModel.openEditTask = true
+                        taskModel.setupTask()
+                    } label: {
+                        Image(systemName: "square.and.pencil")
+                            .foregroundColor(.black)
+                    }
+                }
+            }
+            Text(task.title ?? "")
+                .font(.title2.bold())
+                .foregroundColor(.black)
+                .padding(.vertical, 10)
+            
+            HStack(alignment: .bottom, spacing: 0) {
+                VStack(alignment: .leading, spacing: 10) {
+                    Label {
+                        Text((task.deadline ?? Date()).formatted(date: .long, time: .omitted))
+                    } icon: {
+                        Image(systemName: "calendar")
+                    }
+                    .font(.caption)
+                    
+                    Label {
+                        Text((task.deadline ?? Date()).formatted(date: .omitted, time: .shortened))
+                    } icon: {
+                        Image(systemName: "clock")
+                    }
+                    .font(.caption)
+                }
+                .frame(maxWidth: .infinity,alignment: .leading)
+                
+                if !task.isCompleted && taskModel.currentTab != "Failed"{
+                    Button {
+                        // MARK: Updating Core Data
+                        task.isCompleted.toggle()
+                        try? env.managedObjectContext.save()
+                    } label: {
+                        Circle()
+                            .strokeBorder(.black,lineWidth: 1.5)
+                            .frame(width: 25, height: 25)
+                            .contentShape(Circle())
+                    }
+                }
+            }
+        }
+        .padding()
+        .frame(maxWidth: .infinity)
+        .background{
+            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                .fill(Color(task.color ?? "Yellow"))
+        }
+    }
+    
+    @ViewBuilder
     func CustomSegmentedBar()->some View{
-        let tabs = ["Today","Upcoming","Completed"]
-        HStack(spacing: 10){
-            ForEach(tabs,id: \.self){ tab in
+        let tabs = ["Today","Upcoming","Task Done","Failed"]
+        HStack(spacing: 0){
+            ForEach(tabs,id: \.self){tab in
                 Text(tab)
                     .font(.callout)
                     .fontWeight(.semibold)
                     .scaleEffect(0.9)
                     .foregroundColor(taskModel.currentTab == tab ? .white : .black)
-                    .padding(.vertical, 6)
+                    .padding(.vertical,6)
                     .frame(maxWidth: .infinity)
                     .background{
                         if taskModel.currentTab == tab{
@@ -88,7 +174,6 @@ struct Home: View {
                     .onTapGesture {
                         withAnimation{taskModel.currentTab = tab}
                     }
-                
             }
         }
     }
