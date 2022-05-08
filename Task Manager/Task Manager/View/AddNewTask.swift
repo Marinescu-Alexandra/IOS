@@ -76,7 +76,7 @@ struct AddNewTask: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .overlay(alignment: .bottomTrailing){
                 Button{
-                    
+                    taskModel.showDatePicker.toggle()
                 } label: {
                     Image(systemName: "calendar")
                         .foregroundColor(.black)
@@ -134,7 +134,9 @@ struct AddNewTask: View {
             Divider()
             
             Button {
-                
+                if taskModel.addTask(context: env.managedObjectContext){
+                    env.dismiss()
+                }
             } label: {
                 Text("Save changes")
                     .font(.callout)
@@ -154,6 +156,25 @@ struct AddNewTask: View {
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .padding()
+        .overlay{
+            ZStack{
+                if taskModel.showDatePicker{
+                    Rectangle()
+                        .fill(.ultraThinMaterial)
+                        .ignoresSafeArea()
+                        .onTapGesture{
+                            taskModel.showDatePicker = false
+                        }
+                    
+                    DatePicker.init("", selection: $taskModel.taskDeadline, in: Date.now...Date.distantFuture)
+                        .datePickerStyle(.graphical)
+                        .labelsHidden()
+                        .padding()
+                        .background(.white, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                }
+            }
+            .animation(.easeInOut ,value: taskModel.showDatePicker)
+        }
     }
 }
 
