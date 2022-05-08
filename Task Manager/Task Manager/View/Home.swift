@@ -153,7 +153,7 @@ struct Home: View {
     
     @ViewBuilder
     func CustomSegmentedBar()->some View{
-        let tabs = ["Today","Upcoming","Task Done","Failed"]
+        let tabs = ["Today","Upcoming","Completed","Missed"]
         HStack(spacing: 0){
             ForEach(tabs,id: \.self){tab in
                 Text(tab)
