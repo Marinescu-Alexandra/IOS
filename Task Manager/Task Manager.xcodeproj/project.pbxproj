@@ -14,6 +14,7 @@
 		90D172CE28278B9900C73267 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D172CD28278B9900C73267 /* Persistence.swift */; };
 		90D172D128278B9900C73267 /* Task_Manager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90D172CF28278B9900C73267 /* Task_Manager.xcdatamodeld */; };
 		90D172DA28278E4400C73267 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D172D928278E4400C73267 /* Home.swift */; };
+		90D172DC2827939B00C73267 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D172DB2827939B00C73267 /* TaskViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		90D172CD28278B9900C73267 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		90D172D028278B9900C73267 /* Task_Manager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task_Manager.xcdatamodel; sourceTree = "<group>"; };
 		90D172D928278E4400C73267 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		90D172DB2827939B00C73267 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 		90D172D828278E2B00C73267 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				90D172DB2827939B00C73267 /* TaskViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -163,6 +166,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				90D172CE28278B9900C73267 /* Persistence.swift in Sources */,
+				90D172DC2827939B00C73267 /* TaskViewModel.swift in Sources */,
 				90D172C728278B9800C73267 /* ContentView.swift in Sources */,
 				90D172DA28278E4400C73267 /* Home.swift in Sources */,
 				90D172D128278B9900C73267 /* Task_Manager.xcdatamodeld in Sources */,
