@@ -15,6 +15,7 @@
 		90D172D128278B9900C73267 /* Task_Manager.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 90D172CF28278B9900C73267 /* Task_Manager.xcdatamodeld */; };
 		90D172DA28278E4400C73267 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D172D928278E4400C73267 /* Home.swift */; };
 		90D172DC2827939B00C73267 /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D172DB2827939B00C73267 /* TaskViewModel.swift */; };
+		90D172DE2827DD6900C73267 /* AddNewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D172DD2827DD6900C73267 /* AddNewTask.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		90D172D028278B9900C73267 /* Task_Manager.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Task_Manager.xcdatamodel; sourceTree = "<group>"; };
 		90D172D928278E4400C73267 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		90D172DB2827939B00C73267 /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		90D172DD2827DD6900C73267 /* AddNewTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTask.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				90D172D928278E4400C73267 /* Home.swift */,
+				90D172DD2827DD6900C73267 /* AddNewTask.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 				90D172DC2827939B00C73267 /* TaskViewModel.swift in Sources */,
 				90D172C728278B9800C73267 /* ContentView.swift in Sources */,
 				90D172DA28278E4400C73267 /* Home.swift in Sources */,
+				90D172DE2827DD6900C73267 /* AddNewTask.swift in Sources */,
 				90D172D128278B9900C73267 /* Task_Manager.xcdatamodeld in Sources */,
 				90D172C528278B9800C73267 /* Task_ManagerApp.swift in Sources */,
 			);
